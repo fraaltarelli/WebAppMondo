@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>MondoWebApp</display-name>
+  <servlet>
+    <servlet-name>ListaContinenti</servlet-name>
+    <servlet-class>it.objectmethod.webappMondo.servlets.ListaContinenti</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ListaNazioni</servlet-name>
+    <servlet-class>it.objectmethod.webappMondo.servlets.Lista_Nazioni</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>ListaCitta</servlet-name>
+    <servlet-class>it.objectmethod.webappMondo.servlets.Lista_Citta</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SalvaCitta</servlet-name>
+    <servlet-class>it.objectmethod.jdbctutorial3.servlets.SalvaCitta</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>CercaCitta</servlet-name>
+    <servlet-class>it.objectmethod.webappMondo.servlets.CercaCitta</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListaContinenti</servlet-name>
+    <url-pattern>/runContinenti</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ListaNazioni</servlet-name>
+    <url-pattern>/runNazioni</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>ListaCitta</servlet-name>
+    <url-pattern>/runCitta</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SalvaCitta</servlet-name>
+    <url-pattern>/runSalvaCitta</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CercaCitta</servlet-name>
+    <url-pattern>/cittaCercate</url-pattern>
+  </servlet-mapping>
+</web-app>
