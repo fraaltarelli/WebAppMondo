@@ -16,22 +16,15 @@ import it.objectmethod.webappMondo.model.Citta;
 
 
 public class CercaCitta extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
-	//int currentCityId;
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
 		IDaoCitta daoCitta= new DaoCittaImpl();
 		String cercacitta= request.getParameter("cercacitta");
-//		if (request.getParameter("creacitta")!=null) {
-//			currentCityId=0;
-//			}
 		List<Citta> lista= daoCitta.cercaCitta(cercacitta);
 		request.setAttribute("cittaCercate", lista);
-//		session.setAttribute("currentCityId", currentCityId);
-//		session.setAttribute("currentList", "CercaCitta");
-		//session.setAttribute("currentServlet", "CercaCitta");
 		request.getRequestDispatcher("cittaCercate.jsp").forward(request, response);
 		
 	}

@@ -1,10 +1,11 @@
 package it.objectmethod.webappMondo.model;
 
 public class Citta {
+	
+	private int id;
 	private String nomeCitta;
 	private String distretto;
 	private int popolazione;
-	private int id;
 	private String countryCode;
 	
 	public String getCountryCode() {

@@ -37,28 +37,17 @@ public class Lista_Nazioni extends HttpServlet {
 		
 		
 		
-		if (request.getParameter("continente")!=null) {
-			continenteSelezionato = request.getParameter("continente");
+		continenteSelezionato = request.getParameter("continente");
+		if(continenteSelezionato == null) {
+			continenteSelezionato = (String) session.getAttribute("continenteBySession");
 		}
-		else {
-			String continenteBySession=(String)session.getAttribute("continenteBySession");
-			continenteSelezionato=continenteBySession;
-		}
-		
-		
 		
 		session.setAttribute("continenteBySession", continenteSelezionato);
+		
 		List<Nazione> lista= daoNazione.getAllNationsByContinent(continenteSelezionato);
-		//session.setAttribute("listaContinenti", null);
 		
 		request.setAttribute("listaNazioni", lista);
-		
-		//session.setAttribute("listaCitta", null);
-//		request.setAttribute("newcitta", newcitta);
-		session.setAttribute("targetServletBottone", "runNazioni");
-//		session.setAttribute("currentNation", null);
-//		session.setAttribute("currentList", "");
-//		session.setAttribute("currentCityId", 0);
+
 		request.getRequestDispatcher("listaNazioni.jsp").forward(request, response);
 		
 		

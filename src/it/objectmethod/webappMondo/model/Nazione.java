@@ -1,8 +1,9 @@
 package it.objectmethod.webappMondo.model;
 
 public class Nazione {
-	private String nomeNazione;
+	
 	private String code;
+	private String nomeNazione;
 	public int popolazione;
 
 	public int getPopolazione() {
