@@ -16,20 +16,19 @@ import it.objectmethod.webappMondo.dao.impl.DaoNazioneImpl;
 
 public class ListaContinenti extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		IDaoNazione daoNazione= new DaoNazioneImpl();
-		if(session.getAttribute("continenteBySession")==null) {
-		session.setAttribute("continenteBySession", "Europe");
-		}
 		
+		session.setAttribute("continenteBySession", null);
+
 		List<String> lista= daoNazione.getAllContinents();
 		request.setAttribute("listaContinenti", lista);
 		request.getRequestDispatcher("continenti.jsp").forward(request, response);
-		
+
 	}
 
-	
+
 
 }

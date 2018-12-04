@@ -26,8 +26,8 @@ public class ListaNazioni extends HttpServlet {
 		HttpSession session = request.getSession();
 		IDaoNazione daoNazione= new DaoNazioneImpl();
 		String continenteSelezionato;
-		continenteSelezionato = request.getParameter("continente");
 		
+		continenteSelezionato = request.getParameter("continente");
 		if(continenteSelezionato == null) {
 			continenteSelezionato = (String) session.getAttribute("continenteBySession");
 		}

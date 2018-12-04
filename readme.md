@@ -1,6 +1,5 @@
 ## Evolutive Mondo
 
-- Stessa jsp per ricerca città e lista città
-- Pulizia commenti
-- Refactor nomi classi con _
-- Non commitare cartelle build o target
+- Aggiungere tasto torna ai continenti nella pagina della lista città
+- Nascondere tasto "indietro" quando si arriva alla pagina delle citta tramite ricerca citta
+- Aggiungere gestione eliminazione città

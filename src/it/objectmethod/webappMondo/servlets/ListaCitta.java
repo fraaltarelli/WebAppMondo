@@ -19,27 +19,18 @@ import it.objectmethod.webappMondo.model.Citta;
 
 public class ListaCitta extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-   
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		
+
 		IDaoCitta daoCitta= new DaoCittaImpl();
-		String countrycode;
-		
-		if(request.getParameter("codiceNazioneSelezionata")!= null) {
-		countrycode= request.getParameter("codiceNazioneSelezionata");
-		}
-		else {
-			countrycode= null;
-		}
-		
+		String countrycode = request.getParameter("codiceNazioneSelezionata");
 		
 		List<Citta> lista= daoCitta.getAllCitiesByNation(countrycode);
 		request.setAttribute("listaCitta", lista);
 		request.getRequestDispatcher("listaCitta.jsp").forward(request, response);
-		
+
 	}
 
-	
+
 
 }
