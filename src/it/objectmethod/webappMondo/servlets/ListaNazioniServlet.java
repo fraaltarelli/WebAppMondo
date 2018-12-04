@@ -18,7 +18,7 @@ import it.objectmethod.webappMondo.dao.impl.DaoNazioneImpl;
 import it.objectmethod.webappMondo.model.Nazione;
 
 
-public class ListaNazioni extends HttpServlet {
+public class ListaNazioniServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	  

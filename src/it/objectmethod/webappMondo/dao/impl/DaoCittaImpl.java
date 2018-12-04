@@ -122,4 +122,41 @@ public class DaoCittaImpl implements IDaoCitta{
 		return list;
 	}
 
+	@Override
+	public void eliminaCitta(int idCitta) {
+		
+		Connection conn = ConnectionManager.getConnection();
+		PreparedStatement prepStat = null;
+
+			try{
+
+				String sql = "DELETE from city WHERE id=?";
+				prepStat= conn.prepareStatement(sql);
+				prepStat.setInt(1, idCitta);
+				prepStat.executeUpdate();	
+				
+			}catch(SQLException se){
+				
+				se.printStackTrace();
+			}catch(Exception e){
+				
+				e.printStackTrace();
+			}finally{
+				
+				try{
+					if(prepStat!=null)
+						prepStat.close();
+				}catch(SQLException se2){
+				}
+				try{
+					if(conn!=null)
+						conn.close();
+				}catch(SQLException se){
+					se.printStackTrace();
+				}
+			}
+			return;
+		
+	}
+
 }

@@ -8,5 +8,6 @@ public interface IDaoCitta {
 	
 	 public List<Citta> getAllCitiesByNation(String countrycode);
 	 public List<Citta> cercaCitta(String cittaCercata);
+	 public void eliminaCitta(int idCitta);
 
 }

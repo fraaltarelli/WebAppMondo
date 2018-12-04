@@ -3,19 +3,23 @@
   <display-name>MondoWebApp</display-name>
   <servlet>
     <servlet-name>ListaContinenti</servlet-name>
-    <servlet-class>it.objectmethod.webappMondo.servlets.ListaContinenti</servlet-class>
+    <servlet-class>it.objectmethod.webappMondo.servlets.ListaContinentiServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>ListaNazioni</servlet-name>
-    <servlet-class>it.objectmethod.webappMondo.servlets.ListaNazioni</servlet-class>
+    <servlet-class>it.objectmethod.webappMondo.servlets.ListaNazioniServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>ListaCitta</servlet-name>
-    <servlet-class>it.objectmethod.webappMondo.servlets.ListaCitta</servlet-class>
+    <servlet-class>it.objectmethod.webappMondo.servlets.ListaCittaServlet</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>RicercaCitta</servlet-name>
-    <servlet-class>it.objectmethod.webappMondo.servlets.RicercaCitta</servlet-class>
+    <servlet-class>it.objectmethod.webappMondo.servlets.RicercaCittaServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>EliminaCitta</servlet-name>
+    <servlet-class>it.objectmethod.webappMondo.servlets.EliminaCittaServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ListaContinenti</servlet-name>
@@ -32,5 +36,9 @@
   <servlet-mapping>
     <servlet-name>RicercaCitta</servlet-name>
     <url-pattern>/cittaCercate</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>EliminaCitta</servlet-name>
+    <url-pattern>/runEliminaCitta</url-pattern>
   </servlet-mapping>
 </web-app>
