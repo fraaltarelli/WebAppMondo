@@ -7,19 +7,15 @@
   </servlet>
   <servlet>
     <servlet-name>ListaNazioni</servlet-name>
-    <servlet-class>it.objectmethod.webappMondo.servlets.Lista_Nazioni</servlet-class>
+    <servlet-class>it.objectmethod.webappMondo.servlets.ListaNazioni</servlet-class>
   </servlet>
   <servlet>
     <servlet-name>ListaCitta</servlet-name>
-    <servlet-class>it.objectmethod.webappMondo.servlets.Lista_Citta</servlet-class>
+    <servlet-class>it.objectmethod.webappMondo.servlets.ListaCitta</servlet-class>
   </servlet>
   <servlet>
-    <servlet-name>SalvaCitta</servlet-name>
-    <servlet-class>it.objectmethod.jdbctutorial3.servlets.SalvaCitta</servlet-class>
-  </servlet>
-  <servlet>
-    <servlet-name>CercaCitta</servlet-name>
-    <servlet-class>it.objectmethod.webappMondo.servlets.CercaCitta</servlet-class>
+    <servlet-name>RicercaCitta</servlet-name>
+    <servlet-class>it.objectmethod.webappMondo.servlets.RicercaCitta</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ListaContinenti</servlet-name>
@@ -34,11 +30,7 @@
     <url-pattern>/runCitta</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-    <servlet-name>SalvaCitta</servlet-name>
-    <url-pattern>/runSalvaCitta</url-pattern>
-  </servlet-mapping>
-  <servlet-mapping>
-    <servlet-name>CercaCitta</servlet-name>
+    <servlet-name>RicercaCitta</servlet-name>
     <url-pattern>/cittaCercate</url-pattern>
   </servlet-mapping>
 </web-app>

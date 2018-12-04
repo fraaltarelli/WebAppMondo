@@ -15,7 +15,7 @@ import it.objectmethod.webappMondo.dao.impl.DaoCittaImpl;
 import it.objectmethod.webappMondo.model.Citta;
 
 
-public class CercaCitta extends HttpServlet {
+public class RicercaCitta extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -24,8 +24,8 @@ public class CercaCitta extends HttpServlet {
 		IDaoCitta daoCitta= new DaoCittaImpl();
 		String cercacitta= request.getParameter("cercacitta");
 		List<Citta> lista= daoCitta.cercaCitta(cercacitta);
-		request.setAttribute("cittaCercate", lista);
-		request.getRequestDispatcher("cittaCercate.jsp").forward(request, response);
+		request.setAttribute("listaCitta", lista);
+		request.getRequestDispatcher("listaCitta.jsp").forward(request, response);
 		
 	}
 

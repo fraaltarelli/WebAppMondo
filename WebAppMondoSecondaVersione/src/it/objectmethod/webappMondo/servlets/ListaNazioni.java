@@ -18,7 +18,7 @@ import it.objectmethod.webappMondo.dao.impl.DaoNazioneImpl;
 import it.objectmethod.webappMondo.model.Nazione;
 
 
-public class Lista_Nazioni extends HttpServlet {
+public class ListaNazioni extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	  
@@ -26,28 +26,15 @@ public class Lista_Nazioni extends HttpServlet {
 		HttpSession session = request.getSession();
 		IDaoNazione daoNazione= new DaoNazioneImpl();
 		String continenteSelezionato;
-		//IDaoCity daoCity= new DaoCityImpl();
-		
-//		if (request.getParameter("newcitta")!=null) {
-//			newcitta=true;
-//			}
-//		else {
-//			newcitta=false;
-//		}
-		
-		
-		
 		continenteSelezionato = request.getParameter("continente");
+		
 		if(continenteSelezionato == null) {
 			continenteSelezionato = (String) session.getAttribute("continenteBySession");
 		}
 		
 		session.setAttribute("continenteBySession", continenteSelezionato);
-		
 		List<Nazione> lista= daoNazione.getAllNationsByContinent(continenteSelezionato);
-		
 		request.setAttribute("listaNazioni", lista);
-
 		request.getRequestDispatcher("listaNazioni.jsp").forward(request, response);
 		
 		

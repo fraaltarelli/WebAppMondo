@@ -20,14 +20,12 @@ public class ListaContinenti extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		IDaoNazione daoNazione= new DaoNazioneImpl();
+		if(session.getAttribute("continenteBySession")==null) {
+		session.setAttribute("continenteBySession", "Europe");
+		}
 		
 		List<String> lista= daoNazione.getAllContinents();
-		//session.setAttribute("listaNazioni", null);
 		request.setAttribute("listaContinenti", lista);
-//		request.setAttribute("newcitta", false);
-		session.setAttribute("targetServletBottone", "runContinenti");
-//		session.setAttribute("currentList", "");
-//		session.setAttribute("currentCityId", 0);	
 		request.getRequestDispatcher("continenti.jsp").forward(request, response);
 		
 	}

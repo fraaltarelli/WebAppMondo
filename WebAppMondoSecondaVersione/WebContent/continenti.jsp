@@ -11,12 +11,16 @@
 
 	<div style="text-align: center;">
 
+		<form action="cittaCercate">
+			Cerca Città: <input type="text" name="cercacitta" size="10px"
+				autocomplete="off">
+		</form>
+		<br>
 
 		<c:forEach items="${listaContinenti}" var="continente">
 			<a href="runNazioni?continente=${continente}"> ${continente} </a>
 			<br>
 		</c:forEach>
-
 
 	</div>
 

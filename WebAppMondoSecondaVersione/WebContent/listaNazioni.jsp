@@ -10,12 +10,10 @@
 <body>
 
 	<div style="text-align: center;">
-	
-	<a href="runContinenti">
-				<button>continenti</button> <br>
-			</a>
-			
-			<br>
+
+		<a href="runContinenti">
+			<button>continenti</button> <br>
+		</a> <br>
 
 		<table width="50%" border="1" align="center">
 			<tr>

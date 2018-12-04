@@ -1,13 +1,13 @@
 package it.objectmethod.webappMondo.model;
 
 public class Citta {
-	
+
 	private int id;
 	private String nomeCitta;
 	private String distretto;
 	private int popolazione;
 	private String countryCode;
-	
+
 	public String getCountryCode() {
 		return countryCode;
 	}
@@ -26,7 +26,7 @@ public class Citta {
 	public void setDistretto(String distretto) {
 		this.distretto = distretto;
 	}
-	
+
 	public String getNomeCitta() {
 		return nomeCitta;
 	}
