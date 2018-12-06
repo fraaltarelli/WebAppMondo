@@ -12,33 +12,37 @@
 	<div style="text-align: center;">
 
 
-       <c:if test="${tastoIndietro == true}">
-		<a href="runNazioni">
-			<button>indietro</button> <br>
-		</a> <br>
+		<c:if test="${tastoIndietro == true}">
+			<a href="runNazioni">
+				<button>indietro</button> <br>
+			</a>
+			<br>
 		</c:if>
-		
+
 		<a href="runContinenti">
 			<button>ritorna ai continenti</button> <br>
 		</a> <br>
 
 		<table width="75%" border="1" align="center">
 			<tr>
-				<th width="30%">NomeCitta</th>
-				<th width="26%">Distretto</th>
-				<th width="26%">Popolazione</th>
-				<th with="18%">Elimina Citta
-				<th>
+				<th width="28%">NomeCitta</th>
+				<th width="23%">Distretto</th>
+				<th width="23%">Popolazione</th>
+				<th with="13%">Modifica Citta</th>
+				<th with="13%">Elimina Citta</th>
+
 			</tr>
 		</table>
 
 		<c:forEach items="${listaCitta}" var="citta">
 			<table width="75%" border="1" align="center">
 				<tr>
-					<td width="30%">${citta.nomeCitta}</td>
-					<td width="26%">${citta.distretto}</td>
-					<td width="26%">${citta.popolazione}</td>
-					<td width="18%"><a href="runEliminaCitta?idCitta=${citta.id}"
+					<td width="28%">${citta.nomeCitta}</td>
+					<td width="23%">${citta.distretto}</td>
+					<td width="23%">${citta.popolazione}</td>
+					<td width="13%"><a href="runSalvaCitta?idCitta=${citta.id}"
+						class="button"> Modifica</a></td>
+					<td width="13%"><a href="runEliminaCitta?idCitta=${citta.id}"
 						class="button"> Elimina</a></td>
 				</tr>
 			</table>

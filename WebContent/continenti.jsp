@@ -17,6 +17,12 @@
 		</form>
 		<br>
 
+		<form action="runSalvaCitta">
+			<input name="newcitta" type="submit" value="NuovaCitta">
+		</form>
+		<br>
+
+
 		<c:forEach items="${listaContinenti}" var="continente">
 			<a href="runNazioni?continente=${continente}"> ${continente} </a>
 			<br>

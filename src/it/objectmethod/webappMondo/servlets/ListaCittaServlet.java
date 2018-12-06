@@ -23,9 +23,29 @@ public class ListaCittaServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		IDaoCitta daoCitta= new DaoCittaImpl();
-		String countrycode = request.getParameter("codiceNazioneSelezionata");
-		
-		List<Citta> lista= daoCitta.getAllCitiesByNation(countrycode);
+		String nomeDaSalvare, distrettoDaSalvare;
+		String countrycode=null;
+		int popolazioneDaSalvare;
+		List<Citta> lista;
+
+		if(request.getParameter("codiceNazioneSelezionata")!=null) {
+			countrycode = request.getParameter("codiceNazioneSelezionata");
+		}
+		else {
+			countrycode = (String)session.getAttribute("countryCode");
+		}
+
+
+
+		if(request.getParameter("salvaCitta")!=null) {
+			nomeDaSalvare = (String)request.getParameter("nomecittainserito");
+			distrettoDaSalvare = (String)request.getParameter("nomedistrettoinserito");
+			popolazioneDaSalvare = Integer.parseInt(request.getParameter("popolazioneinserita"));
+			daoCitta.modificaCitta((int)session.getAttribute("idCittaDaModificare"), nomeDaSalvare, distrettoDaSalvare, popolazioneDaSalvare);
+		}
+		lista= daoCitta.getAllCitiesByNation(countrycode);
+
+
 		session.setAttribute("countryCode", countrycode);
 		session.setAttribute("tastoIndietro", true);
 		session.setAttribute("tipoDiListaCitta", "listaCitta");

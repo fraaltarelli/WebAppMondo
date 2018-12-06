@@ -86,7 +86,6 @@ public class DaoNazioneImpl implements IDaoNazione{
 				list.add(nation);
 			}
 
-
 			rs.close();
 			prepStat.close();
 			conn.close();
@@ -112,6 +111,53 @@ public class DaoNazioneImpl implements IDaoNazione{
 		}
 		System.out.println("Goodbye!");
 		return list;
+	}
+
+	@Override
+	public List<String> allNationNames() {
+		
+		List<String> list = null;
+		Connection conn = ConnectionManager.getConnection();
+		PreparedStatement prepStat = null;
+		try{
+			
+			String sql = "SELECT name from country";
+			prepStat= conn.prepareStatement(sql);
+			ResultSet rs = prepStat.executeQuery();
+            list = new ArrayList<>();
+            
+			while(rs.next()){
+				
+				String name = rs.getString("name");
+				list.add(name);
+			}
+			
+			rs.close();
+			prepStat.close();
+			conn.close();
+		}catch(SQLException se){
+			
+			se.printStackTrace();
+		}catch(Exception e){
+			
+			e.printStackTrace();
+		}finally{
+			
+			try{
+				if(prepStat!=null)
+					prepStat.close();
+			}catch(SQLException se2){
+			}
+			try{
+				if(conn!=null)
+					conn.close();
+			}catch(SQLException se){
+				se.printStackTrace();
+			}
+		}
+		System.out.println("Goodbye!");
+		return list;
+		
 	}
 
 }

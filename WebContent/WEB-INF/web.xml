@@ -21,6 +21,10 @@
     <servlet-name>EliminaCitta</servlet-name>
     <servlet-class>it.objectmethod.webappMondo.servlets.EliminaCittaServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>SalvaCitta</servlet-name>
+    <servlet-class>it.objectmethod.webappMondo.servlets.SalvaCittaServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>ListaContinenti</servlet-name>
     <url-pattern>/runContinenti</url-pattern>
@@ -40,5 +44,9 @@
   <servlet-mapping>
     <servlet-name>EliminaCitta</servlet-name>
     <url-pattern>/runEliminaCitta</url-pattern>
+  </servlet-mapping>
+   <servlet-mapping>
+    <servlet-name>SalvaCitta</servlet-name>
+    <url-pattern>/runSalvaCitta</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -21,25 +21,25 @@ import it.objectmethod.webappMondo.model.Nazione;
 public class ListaNazioniServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	  
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		IDaoNazione daoNazione= new DaoNazioneImpl();
 		String continenteSelezionato;
-		
+
 		continenteSelezionato = request.getParameter("continente");
 		if(continenteSelezionato == null) {
 			continenteSelezionato = (String) session.getAttribute("continenteBySession");
 		}
-		
+
 		session.setAttribute("continenteBySession", continenteSelezionato);
 		List<Nazione> lista= daoNazione.getAllNationsByContinent(continenteSelezionato);
 		request.setAttribute("listaNazioni", lista);
 		request.getRequestDispatcher("listaNazioni.jsp").forward(request, response);
-		
-		
+
+
 	}
 
-	
+
 
 }

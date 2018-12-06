@@ -7,7 +7,14 @@ public class Citta {
 	private String distretto;
 	private int popolazione;
 	private String countryCode;
+	private String nazione;
 
+	public String getNazione() {
+		return nazione;
+	}
+	public void setNazione(String nazione) {
+		this.nazione = nazione;
+	}
 	public String getCountryCode() {
 		return countryCode;
 	}
