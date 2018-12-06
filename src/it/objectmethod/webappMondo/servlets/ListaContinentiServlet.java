@@ -26,7 +26,7 @@ public class ListaContinentiServlet extends HttpServlet {
 		int popolazioneDaSalvare;
 		IDaoCitta daoCitta= new DaoCittaImpl();
 
-		if(session.getAttribute("nuovaCitta")!=null) {
+		if(session.getAttribute("nuovaCitta")!=null) { 
 			if((boolean)session.getAttribute("nuovaCitta")==true) {
 				nazioneSelezionata = (String)request.getParameter("nazioneselezionata");
 				nomeDaSalvare = (String)request.getParameter("nomecittainserito");

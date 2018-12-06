@@ -167,7 +167,7 @@ public class DaoCittaImpl implements IDaoCitta{
 
 		try{
 
-			String sql = "UPDATE City " + 
+			String sql = "UPDATE city " + 
 					" SET name=?, district=?, population= ?" + 
 					" WHERE id=?";
 			prepStat= conn.prepareStatement(sql);
@@ -333,7 +333,7 @@ public class DaoCittaImpl implements IDaoCitta{
 
 		try{
 
-			String sql = "INSERT INTO City (Name, CountryCode, District, Population)" + 
+			String sql = "INSERT INTO city (Name, CountryCode, District, Population)" + 
 					" VALUES (?, ?, ?, ?)";
 			prepStat= conn.prepareStatement(sql);
 			prepStat.setString(1, nome);

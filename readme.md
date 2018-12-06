@@ -1,5 +1,6 @@
 ## Evolutive Mondo
 
-- Aggiungere tasto torna ai continenti nella pagina della lista città
-- Nascondere tasto "indietro" quando si arriva alla pagina delle citta tramite ricerca citta
-- Aggiungere gestione eliminazione città
+- Usare la session __SOLO__ per tenere traccia del continente selezionato;
+- Correggere il salvataggio delle città in modo che l'operazione venga eseguita quando viene chiamata la servlet SalvaCitta;
+- Modifica/Salvataggio citta -> utilizzare direttamente codice e creare nuova servlet per inizializzare form di inserimento con la lista delle Nazioni.
+- Inserimento/Modifica citta su dao -> passare come parametro un oggeto di tipo Citta
