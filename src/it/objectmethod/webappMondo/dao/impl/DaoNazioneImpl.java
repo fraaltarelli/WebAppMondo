@@ -21,8 +21,6 @@ public class DaoNazioneImpl implements IDaoNazione{
 		List<String> list = null;
 		Connection conn = ConnectionManager.getConnection();
 		try{
-
-			System.out.println("Creating statement...");
 			stmt = conn.createStatement();
 			String sql;
 			sql = "SELECT distinct continent FROM country";
@@ -114,35 +112,40 @@ public class DaoNazioneImpl implements IDaoNazione{
 	}
 
 	@Override
-	public List<String> allNationNames() {
-		
-		List<String> list = null;
+	public List<Nazione> allNations() {
+
+		List<Nazione> list = null;
 		Connection conn = ConnectionManager.getConnection();
 		PreparedStatement prepStat = null;
 		try{
-			
-			String sql = "SELECT name from country";
+
+			String sql = "SELECT name, code, population from country";
 			prepStat= conn.prepareStatement(sql);
 			ResultSet rs = prepStat.executeQuery();
-            list = new ArrayList<>();
-            
+			list = new ArrayList<>();
+
 			while(rs.next()){
-				
+				Nazione nation= new Nazione();
 				String name = rs.getString("name");
-				list.add(name);
+				String code= rs.getString("code");
+				int population = rs.getInt("population");
+				nation.setNomeNazione(name);
+				nation.setCode(code);
+				nation.setPopolazione(population);
+				list.add(nation);
 			}
-			
+
 			rs.close();
 			prepStat.close();
 			conn.close();
 		}catch(SQLException se){
-			
+
 			se.printStackTrace();
 		}catch(Exception e){
-			
+
 			e.printStackTrace();
 		}finally{
-			
+
 			try{
 				if(prepStat!=null)
 					prepStat.close();
@@ -157,7 +160,7 @@ public class DaoNazioneImpl implements IDaoNazione{
 		}
 		System.out.println("Goodbye!");
 		return list;
-		
+
 	}
 
 }

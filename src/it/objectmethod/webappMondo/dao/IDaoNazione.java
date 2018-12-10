@@ -8,6 +8,6 @@ public interface IDaoNazione {
 
 	public List<String> getAllContinents();
 	public List<Nazione> getAllNationsByContinent(String continent);
-	public List<String> allNationNames();
+	public List<Nazione> allNations();
 	
 }

@@ -22,6 +22,10 @@
     <servlet-class>it.objectmethod.webappMondo.servlets.EliminaCittaServlet</servlet-class>
   </servlet>
   <servlet>
+    <servlet-name>AggiornamentoFormModificaCitta</servlet-name>
+    <servlet-class>it.objectmethod.webappMondo.servlets.AggiornamentoFormModificaCittaServlet</servlet-class>
+  </servlet>
+  <servlet>
     <servlet-name>SalvaCitta</servlet-name>
     <servlet-class>it.objectmethod.webappMondo.servlets.SalvaCittaServlet</servlet-class>
   </servlet>
@@ -45,7 +49,11 @@
     <servlet-name>EliminaCitta</servlet-name>
     <url-pattern>/runEliminaCitta</url-pattern>
   </servlet-mapping>
-   <servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>AggiornamentoFormModificaCitta</servlet-name>
+    <url-pattern>/runAggiornamentoForm</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
     <servlet-name>SalvaCitta</servlet-name>
     <url-pattern>/runSalvaCitta</url-pattern>
   </servlet-mapping>

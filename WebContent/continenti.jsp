@@ -17,8 +17,9 @@
 		</form>
 		<br>
 
-		<form action="runSalvaCitta">
+		<form action="runAggiornamentoForm?">
 			<input name="newcitta" type="submit" value="NuovaCitta">
+			<input name="idCitta" type="hidden" value="0">
 		</form>
 		<br>
 

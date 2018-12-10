@@ -11,17 +11,15 @@
 
 	<div style="text-align: center;">
 
-
-		<c:if test="${tastoIndietro == true}">
-			<a href="runNazioni">
-				<button>indietro</button> <br>
-			</a>
-			<br>
+		<c:if test="${eliminazioneRiuscita==true}">
+			<h2>Eliminazione Riuscita</h2>
 		</c:if>
 
 		<a href="runContinenti">
 			<button>ritorna ai continenti</button> <br>
 		</a> <br>
+
+
 
 		<table width="75%" border="1" align="center">
 			<tr>
@@ -40,7 +38,8 @@
 					<td width="28%">${citta.nomeCitta}</td>
 					<td width="23%">${citta.distretto}</td>
 					<td width="23%">${citta.popolazione}</td>
-					<td width="13%"><a href="runSalvaCitta?idCitta=${citta.id}"
+					<td width="13%"><a
+						href="runAggiornamentoForm?idCitta=${citta.id}&countryCode=${citta.countryCode}"
 						class="button"> Modifica</a></td>
 					<td width="13%"><a href="runEliminaCitta?idCitta=${citta.id}"
 						class="button"> Elimina</a></td>

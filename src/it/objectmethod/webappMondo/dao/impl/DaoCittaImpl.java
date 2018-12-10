@@ -160,7 +160,7 @@ public class DaoCittaImpl implements IDaoCitta{
 	}
 
 	@Override
-	public void modificaCitta(int idCittaDaModificare, String nome, String distretto, int popolazione) {
+	public void aggiornaCitta(Citta cittaDaAggiornare) {
 
 		Connection conn = ConnectionManager.getConnection();
 		PreparedStatement prepStat = null;
@@ -168,13 +168,14 @@ public class DaoCittaImpl implements IDaoCitta{
 		try{
 
 			String sql = "UPDATE city " + 
-					" SET name=?, district=?, population= ?" + 
+					" SET name=?, countrycode=?, district=?, population= ?" + 
 					" WHERE id=?";
 			prepStat= conn.prepareStatement(sql);
-			prepStat.setString(1, nome);
-			prepStat.setString(2, distretto);
-			prepStat.setInt(3, popolazione);
-			prepStat.setInt(4, idCittaDaModificare);
+			prepStat.setString(1, cittaDaAggiornare.getNomeCitta());
+			prepStat.setString(2, cittaDaAggiornare.getCountryCode());
+			prepStat.setString(3, cittaDaAggiornare.getDistretto());
+			prepStat.setInt(4, cittaDaAggiornare.getPopolazione());
+			prepStat.setInt(5, cittaDaAggiornare.getId());
 			prepStat.executeUpdate();	
 			prepStat.close();
 			conn.close();
@@ -210,7 +211,8 @@ public class DaoCittaImpl implements IDaoCitta{
 		PreparedStatement prepStat = null;
 		try{
 
-			String sql = "SELECT name, district, population from city where id = ?";
+			String sql = "SELECT name, district, population, countrycode from city " + 
+					"where id = ?";
 			prepStat= conn.prepareStatement(sql);
 			prepStat.setInt(1, id);
 			ResultSet rs =prepStat.executeQuery();
@@ -220,10 +222,12 @@ public class DaoCittaImpl implements IDaoCitta{
 				String name = rs.getString("Name");
 				String district = rs.getString("district");
 				int population = rs.getInt("population");
+				String countryCode= rs.getString("countrycode");
 				city.setNomeCitta(name);
 				city.setDistretto(district);
 				city.setPopolazione(population);
 				city.setId(id);
+				city.setCountryCode(countryCode);
 			}
 
 			rs.close();
@@ -249,97 +253,26 @@ public class DaoCittaImpl implements IDaoCitta{
 				se.printStackTrace();
 			}
 		}
-
-		conn = ConnectionManager.getConnection();
-		prepStat = null;
-
-		try{
-			String sql = "select country.name from country inner join city on country.code = city.CountryCode where city.id = ?";
-			prepStat= conn.prepareStatement(sql);
-			prepStat.setInt(1, id);
-			ResultSet rs =prepStat.executeQuery();
-
-			while(rs.next()){
-				String nazione = rs.getString("name");
-				city.setNazione(nazione);
-			}
-
-			rs.close();
-			prepStat.close();
-			conn.close();
-		}catch(SQLException se){
-			se.printStackTrace();
-		}catch(Exception e){
-			e.printStackTrace();
-		}finally{
-			try{
-				if(prepStat!=null)
-					prepStat.close();
-			}catch(SQLException se2){
-			}
-			try{
-				if(conn!=null)
-					conn.close();
-			}catch(SQLException se){
-				se.printStackTrace();
-			}
-		}
-
 
 		System.out.println("Goodbye!");
 		return city;
 	}
 
 	@Override
-	public void inserisciCitta(String nazione, String nome, String distretto, int popolazione) {
+	public void inserisciCitta(Citta cittaDaInserire) {
 		Connection conn = ConnectionManager.getConnection();
 		PreparedStatement prepStat = null;
-		String codiceNazione="";
-
-		try{
-			String sql = "select code from country where name = ?";
-			prepStat= conn.prepareStatement(sql);
-			prepStat.setString(1, nazione);
-			ResultSet rs =prepStat.executeQuery();
-
-			while(rs.next()){
-				String code = rs.getString("code");
-				codiceNazione=code;
-			}
-
-			rs.close();
-			prepStat.close();
-			conn.close();
-		}catch(SQLException se){
-			se.printStackTrace();
-		}catch(Exception e){
-			e.printStackTrace();
-		}finally{
-			try{
-				if(prepStat!=null)
-					prepStat.close();
-			}catch(SQLException se2){
-			}
-			try{
-				if(conn!=null)
-					conn.close();
-			}catch(SQLException se){
-				se.printStackTrace();
-			}
-		}
-
-		conn = ConnectionManager.getConnection();
-		prepStat = null;
 
 		try{
 
-			String sql = "INSERT INTO city (Name, CountryCode, District, Population)" + 
-					" VALUES (?, ?, ?, ?)";
+			String sql = "INSERT INTO city (id, Name, CountryCode, District, Population)" + 
+					" values (?, ?, ?, ?, ?)";
 			prepStat= conn.prepareStatement(sql);
-			prepStat.setString(1, nome);
-			prepStat.setString(2, codiceNazione);
-			prepStat.setString(3, distretto);
-			prepStat.setInt(4, popolazione);
+			prepStat.setInt(1, cittaDaInserire.getId());
+			prepStat.setString(2, cittaDaInserire.getNomeCitta());
+			prepStat.setString(3, cittaDaInserire.getCountryCode());
+			prepStat.setString(4, cittaDaInserire.getDistretto());
+			prepStat.setInt(5, cittaDaInserire.getPopolazione());
 			prepStat.executeUpdate();	
 
 			prepStat.close();
