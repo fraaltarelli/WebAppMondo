@@ -29,6 +29,10 @@
     <servlet-name>SalvaCitta</servlet-name>
     <servlet-class>it.objectmethod.webappMondo.servlets.SalvaCittaServlet</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>StampaListaCitta</servlet-name>
+    <servlet-class>it.objectmethod.webappMondo.servlets.StampaListaCittaServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>ListaContinenti</servlet-name>
     <url-pattern>/runContinenti</url-pattern>
@@ -56,5 +60,9 @@
   <servlet-mapping>
     <servlet-name>SalvaCitta</servlet-name>
     <url-pattern>/runSalvaCitta</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>StampaListaCitta</servlet-name>
+    <url-pattern>/stampaListaCitta</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -19,12 +19,12 @@ public class RicercaCittaServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		IDaoCitta daoCitta= new DaoCittaImpl();
-		String cercacitta = null;
         
-		cercacitta= request.getParameter("cercacitta");
+		String cercacitta= request.getParameter("cercacitta");
 	    List<Citta> lista= daoCitta.cercaCitta(cercacitta);
 
 	    
+	    request.setAttribute("cercaCitta", cercacitta);
 		request.setAttribute("listaCitta", lista);
 		request.getRequestDispatcher("listaCitta.jsp").forward(request, response);
 

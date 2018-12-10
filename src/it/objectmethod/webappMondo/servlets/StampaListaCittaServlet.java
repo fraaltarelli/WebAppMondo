@@ -10,25 +10,27 @@ import javax.servlet.http.HttpServletResponse;
 
 import it.objectmethod.webappMondo.dao.IDaoCitta;
 import it.objectmethod.webappMondo.dao.impl.DaoCittaImpl;
+import it.objectmethod.webappMondo.model.Citta;
 
 
-public class EliminaCittaServlet extends HttpServlet {
+public class StampaListaCittaServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
+		List<Citta> lista=null;
+		String countryCode = (String)request.getAttribute("countryCode");
 		IDaoCitta daoCitta= new DaoCittaImpl();
-		int idCittaDaEliminare = Integer.parseInt(request.getParameter("idCitta"));
-		daoCitta.eliminaCitta(idCittaDaEliminare);
-		String countryCode = request.getParameter("countryCode");
-		if(request.getParameter("cercaCitta") != "") {
-			request.setAttribute("cercaCitta", request.getParameter("cercaCitta"));
+		if(request.getParameter("cercaCitta")=="") {
+		lista= daoCitta.getAllCitiesByNation(countryCode);
+		}
+		else {
+			 lista= daoCitta.cercaCitta(request.getParameter("cercaCitta"));
 		}
 		
-		request.setAttribute("countryCode", countryCode);
-		request.setAttribute("eliminazioneRiuscita", true);
-		request.getRequestDispatcher("/stampaListaCitta").forward(request, response);
+		request.setAttribute("listaCitta", lista);
+		request.getRequestDispatcher("listaCitta.jsp").forward(request, response);
 
 	}
 

@@ -41,7 +41,7 @@
 					<td width="13%"><a
 						href="runAggiornamentoForm?idCitta=${citta.id}&countryCode=${citta.countryCode}"
 						class="button"> Modifica</a></td>
-					<td width="13%"><a href="runEliminaCitta?idCitta=${citta.id}"
+					<td width="13%"><a href="runEliminaCitta?idCitta=${citta.id}&countryCode=${citta.countryCode}&cercaCitta=${cercaCitta}"
 						class="button"> Elimina</a></td>
 				</tr>
 			</table>
